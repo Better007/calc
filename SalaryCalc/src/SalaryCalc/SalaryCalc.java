@@ -152,14 +152,11 @@ public class SalaryCalc implements ActionListener{
         double hours = Double.valueOf(arrTf[1].getText()); //часы работы
         double days = Double.valueOf(arrTf[2].getText()); //дни работы
         double stavkaNalog = Double.valueOf(arrTf[3].getText()); //ставка налога
-        double pribil = stavka * hours * days; //расчет прибыли
-        double prem = pribil * 0.1; //расчет премии 
-        double nalog = (pribil + prem) * stavkaNalog / 100; //расчет налога
-        double result = pribil + prem - nalog; //считаем зп на руки
-        arrTf[4].setText(String.format("%.2f", pribil)); //выводим прибыль в 5-е текстовое поле
-        arrTf[5].setText(String.format("%.2f", prem)); //выводим премию в 6-е т.п.
-        arrTf[6].setText(String.format("%.2f", nalog)); //выводим налог в 7-е т.п.
-        arrTf[7].setText(String.format("%.2f", result)); //выводим зп на руки в 8-е т.п.
+        func f = new func();
+        arrTf[4].setText(String.format("%.2f", f.pribil(stavka, hours, days))); //выводим прибыль в 5-е текстовое поле
+        arrTf[5].setText(String.format("%.2f", f.prem(f.pribil(stavka, hours, days)))); //выводим премию в 6-е т.п.
+        arrTf[6].setText(String.format("%.2f", f.nalog(stavkaNalog, stavka, hours, days))); //выводим налог в 7-е т.п.
+        arrTf[7].setText(String.format("%.2f", f.result(stavkaNalog, stavka, hours, days))); //выводим зп на руки в 8-е т.п.
     }
     
     public static void main(String[] args) {

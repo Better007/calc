@@ -1,19 +1,11 @@
 package SalaryCalc;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-import junit.framework.Assert;
-
-import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class TestSalaryCalc {
     
     
-    @Test
+    /*@Test
     public void testCalcSalary(){
         try{
             //Установка начальных значений для теста
@@ -31,5 +23,11 @@ public class TestSalaryCalc {
             Assert.fail("Проверьте правильность входных занчений");
         }
         
+    }*/
+	
+	func f = new func();
+	@org.junit.Test
+    public void testF() {
+    	assertEquals(Double.toString(f.pribil(300, 6, 10)), "18000.0");
     }
 }
